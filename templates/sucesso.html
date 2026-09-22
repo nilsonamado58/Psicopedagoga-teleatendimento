@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agendamento recebido! - 30 min</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body style="display:flex;align-items:center;justify-content:center;min-height:100vh">
+<div class="container" style="max-width:640px">
+<div class="card" style="text-align:center;padding:40px;border-radius:32px">
+<div style="font-size:60px">✅</div>
+<h1 style="margin:16px 0">Agendamento recebido, {{ dados.nome_paciente }}!</h1>
+<p style="color:#636E72">Recebemos seu pedido. Para confirmar, faça o PIX de <b>R$150,00</b> (sessão de 30 minutos) para <b>33075478873</b> (Priscila A. S. Moreira) identificando <b>{{ dados.nome_paciente }}</b> e envie o comprovante para o WhatsApp <b>{{ dados.whatsapp }}</b>. Contato: <b>priscila_amado84@yahoo.com</b></p>
+<div style="background:#F8F9FF;padding:18px;border-radius:14px;margin:20px 0;text-align:left">
+<b>Próximos passos:</b><br>1. PIX R$150,00 - 30 min - chave 33075478873<br>2. Envia comprovante no WhatsApp<br>3. Recebe link da videochamada (30 min)<br>4. Dúvidas: priscila_amado84@yahoo.com
+</div>
+<a href="/" class="btn btn-primary">Voltar ao início</a>
+</div></div></body></html>

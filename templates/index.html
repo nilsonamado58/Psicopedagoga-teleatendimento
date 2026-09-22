@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Priscila A. S. Moreira | Psicopedagoga - Teleatendimento 30min</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <div class="logo">Priscila A. S. <span>Moreira</span> • Psicopedagoga</div>
+    <a href="#formulario" class="btn btn-primary">Agendar agora</a>
+  </div>
+</header>
+
+<section class="container hero">
+  <div>
+    <span style="background:#DFE6FF;color:#6C5CE7;padding:6px 14px;border-radius:20px;font-weight:700;font-size:.85rem">Atendimento 100% Online • Sessão de 30 minutos • CRP Validado</span>
+    <h1 style="font-family:'Plus Jakarta Sans'">Acolhimento e desenvolvimento para <b>crianças, adolescentes e adultos</b></h1>
+    <p>Sou <strong>Priscila A. S. Moreira</strong>, Pedagoga e Pós-graduada com especialização em Psicopedagogia. Ajudo a superar dificuldades de aprendizagem, ansiedade escolar, TDAH, dislexia e orientação de estudos — tudo por videochamada de 30 minutos, com ética e sigilo.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="#formulario" class="btn btn-primary">Quero agendar R$ 150,00 - 30 min</a>
+      <a href="#como-funciona" class="btn" style="background:white;border:1px solid #ddd">Como funciona</a>
+    </div>
+    <div style="margin-top:28px;display:flex;gap:20px">
+      <div><strong style="color:var(--primary);font-size:1.6rem">100%</strong><br><small style="color:var(--muted)">online via WhatsApp</small></div>
+      <div><strong style="color:var(--primary);font-size:1.6rem">15 min</strong><br><small style="color:var(--muted)">para confirmar</small></div>
+      <div><strong style="color:var(--primary);font-size:1.6rem">30 min</strong><br><small style="color:var(--muted)">por sessão</small></div>
+    </div>
+  </div>
+  <div class="hero-card">
+    <span class="badge">🟢 Atendimento disponível hoje</span>
+    <img src="{{ url_for('static', filename='img/videocall-3d-illustration.webp') }}" alt="Ilustração 3D videocall" style="width:100%;border-radius:16px;object-fit:contain;height:380px;background:#F8F9FF">
+    <div style="padding:16px 4px 0">
+      <strong>Priscila A. S. Moreira</strong><br>
+      <small style="color:var(--muted)">Pedagoga | Especialista em Psicopedagogia | Sessões de 30 min</small><br>
+      <small style="color:var(--muted)">📧 priscila_amado84@yahoo.com | PIX: 33075478873</small>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="como-funciona">
+  <h2 style="text-align:center;font-size:2rem;margin-bottom:12px;font-family:'Plus Jakarta Sans'">Como funciona o teleatendimento</h2>
+  <p style="text-align:center;color:var(--muted);max-width:600px;margin:0 auto 40px">Simples, seguro e dentro da lei. Seguimos a regulamentação do CFP para atendimento online.</p>
+  <div class="grid-3">
+    <div class="card"><div class="icon" style="background:#E0E7FF">📝</div><h3>1. Preencha o formulário</h3><p style="color:var(--muted)">Informe quem será atendido e WhatsApp para contato. Se for menor de idade, informe o responsável legal.</p></div>
+    <div class="card"><div class="icon" style="background:#CCFBF1">💳</div><h3>2. Pagamento PIX R$150 - 30min</h3><p style="color:var(--muted)">Chave PIX: <b>33075478873</b> - Priscila A. S. Moreira. Valor R$150,00 por sessão de 30 minutos. Envie comprovante no WhatsApp.</p></div>
+    <div class="card"><div class="icon" style="background:#FFE4E6">💬</div><h3>3. Atendimento via WhatsApp</h3><p style="color:var(--muted)">Recebe link de videochamada no WhatsApp. Sessão de 30 minutos, sigilosa e acolhedora. Contato: priscila_amado84@yahoo.com</p></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="form-section" id="formulario">
+    <h2 style="font-family:'Plus Jakarta Sans';font-size:1.9rem;margin-bottom:6px">Formulário de Agendamento - Teleatendimento 30 minutos</h2>
+    <p style="color:var(--muted);margin-bottom:24px">⚠️ <b>Menores de idade:</b> atendimento só será realizado com autorização e presença do responsável legal.</p>
+
+    <div class="pix-box">
+      <div>
+        <h4>Pagamento para confirmação - Sessão 30 min</h4>
+        <p>Valor: <b>R$ 150,00</b> por sessão de 30 minutos<br>PIX (CPF): <b style="font-size:1.2rem">33075478873</b><br>Titular: Priscila A. S. Moreira<br>E-mail contato: <b>priscila_amado84@yahoo.com</b><br><small>Identifique no PIX o nome da pessoa que será atendida</small></p>
+      </div>
+      <button class="btn" style="background:white;color:var(--primary)" onclick="copiarPix()">Copiar chave PIX 33075478873</button>
+    </div>
+
+    <form action="{{ url_for('agendar') }}" method="POST">
+      <div class="form-grid">
+        <div class="form-group full" style="background:#FFF3CD;padding:14px;border-radius:12px;border:1px solid #FFEEAA">
+          <label class="checkbox" style="margin:0"><input type="checkbox" id="eh_menor" name="eh_menor" onchange="toggleResponsavel()"> Este atendimento é para menor de idade? (menor de 18 anos)</label>
+        </div>
+        <div class="form-group"><label>Nome completo de quem será atendido *</label><input type="text" name="nome_paciente" required></div>
+        <div class="form-group"><label>Idade *</label><input type="number" id="idade" name="idade" required min="0" max="110"></div>
+        <div class="form-group"><label>Data de nascimento</label><input type="date" name="data_nascimento"></div>
+        <div class="form-group"><label>WhatsApp para videochamada *</label><input type="tel" id="whatsapp" name="whatsapp" required placeholder="(11) 99999-9999"></div>
+        <div class="form-group full"><label>E-mail para envio de link e recibo *</label><input type="email" name="email_contato" required></div>
+        <div id="box-responsavel" style="display:none;grid-column:1/-1" class="form-grid">
+          <div class="form-group"><label>Nome do responsável *</label><input type="text" id="nome_responsavel" name="nome_responsavel"></div>
+          <div class="form-group"><label>Parentesco *</label><select name="parentesco_responsavel"><option>Mãe</option><option>Pai</option><option>Tutor</option></select></div>
+        </div>
+        <div class="form-group full"><label>Qual a principal queixa/dificuldade? *</label><textarea name="queixa_principal" required></textarea></div>
+        <div class="form-group full">
+          <label class="checkbox"><input type="checkbox" name="aceite_termos" required> Li e aceito que: (1) atendimento de 30 minutos via WhatsApp, (2) valor R$150,00 por sessão de 30 minutos pago antecipado via PIX 33075478873, (3) contato priscila_amado84@yahoo.com, (4) LGPD e sigilo, (5) menor precisa responsável. *</label>
+        </div>
+        <div class="form-group full"><button type="submit" class="btn btn-primary" style="width:100%;padding:18px;font-size:1.1rem">Confirmar agendamento - R$150,00 - 30 min via PIX 33075478873</button><p style="text-align:center;margin-top:10px;color:var(--muted);font-size:.85rem">Sessão de 30 minutos. Confirmação em até 2h no WhatsApp. Dúvidas: priscila_amado84@yahoo.com</p></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer style="text-align:center;padding:60px 0;color:var(--muted)">
+  <p><strong>Priscila A. S. Moreira</strong> - Pedagoga | Pós-graduada em Psicopedagogia<br>Teleatendimento 30 min | R$150,00 | PIX 33075478873 | 📧 priscila_amado84@yahoo.com<br>🔒 Sigilo profissional garantido • LGPD • CFP Resolução 11/2018</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
